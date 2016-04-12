@@ -1,0 +1,14 @@
+db:
+  image: 'postgres:latest'
+  environment:
+    - POSTGRES_USER=<username>
+    - POSTGRES_PASSWORD=<password>
+odoo:
+  image: 'odoo:latest'
+  environment:
+  ports:
+    - '8069:8069'
+  links:
+    - db
+  volumes:
+    - '/root/docker/odoo/etc/odoo:/etc/odoo'
